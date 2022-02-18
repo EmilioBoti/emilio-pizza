@@ -30,8 +30,10 @@ class OrderFragment : Fragment(), IOrder.PresenterView{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.title = "List Orders"
         containerItemOrder = view.findViewById(R.id.containerItemOrder)
         model = Model()
+
         orderInteractor = OrderInteractor(this, model)
         lifecycleScope.launch {
             orderInteractor.getList()

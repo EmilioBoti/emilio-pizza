@@ -15,10 +15,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navigate(PanelFragment())
+        title = "Panel"
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.viewContainer, PanelFragment())
+            .commit()
     }
-    private fun navigate( fragment: Fragment){
-        supportFragmentManager.beginTransaction().replace(R.id.viewContainer, fragment).commit()
+    private fun navigateGoBack( fragment: Fragment){
+        supportFragmentManager.beginTransaction().replace(R.id.viewContainer, fragment)
+            .addToBackStack("back")
+            .commit()
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
@@ -31,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
             }
             R.id.order -> {
-                navigate(OrderFragment())
+                navigateGoBack(OrderFragment())
             }R.id.cart -> {
 
             }R.id.historial -> {
