@@ -2,13 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.emiliopizza">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EmilioPizza">
+        android:theme="@style/Theme.EmilioPizza"
+        android:allowClearUserData="true"
+        >
         <activity android:name=".views.LoginActivity"
             android:exported="true"
             android:theme="@style/fullScreen"
@@ -22,6 +25,11 @@
         <activity
             android:name=".views.MainActivity"
             android:exported="true">
+        </activity>
+        <activity android:name=".views.ProfileActivity"
+            android:exported="true"
+            android:theme="@style/fullScreen"
+            >
         </activity>
     </application>
 

@@ -11,4 +11,9 @@
     <string name="orders">Orders</string>
     <string name="historial">Historial</string>
     <string name="cart">Cart</string>
+    <string name="item_descrip">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra sit amet quam eget rutrum. Suspendisse facilisis eu ipsum sit amet aliquet. Morbi tincidunt dignissim sem quis mollis. Cras nec magna in mi ornare rutrum nec quis ipsum. Nam ac nisi in massa ultrices faucibus. Suspendisse et sollicitudin metus, in congue justo.
+    </string>
+    <string name="addcart">Add</string>
+    <string name="cartIcon">CartIcon</string>
 </resources>

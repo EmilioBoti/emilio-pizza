@@ -1,11 +1,13 @@
 package com.example.emiliopizza.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.emiliopizza.R
+import com.example.emiliopizza.views.fragments.CartFragment
 import com.example.emiliopizza.views.fragments.OrderFragment
 import com.example.emiliopizza.views.fragments.PanelFragment
 
@@ -26,19 +28,24 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_item, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.profile -> {
-
+                Intent(this, ProfileActivity::class.java).apply {
+                    startActivity(this)
+                }
             }
             R.id.order -> {
                 navigateGoBack(OrderFragment())
-            }R.id.cart -> {
-
+            }R.id.cartMenu->{
+                navigateGoBack(CartFragment())
+            }
+            R.id.cart -> {
+                navigateGoBack(CartFragment())
             }R.id.historial -> {
 
             }
