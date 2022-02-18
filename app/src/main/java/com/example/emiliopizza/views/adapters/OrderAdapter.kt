@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
 import com.example.emiliopizza.views.models.Order
 
-class OrderAdapter(val context: Context,val list: ArrayList<Order>) : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
+class OrderAdapter(val context: Context,val list: MutableList<Order>) : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.order_item, null)
