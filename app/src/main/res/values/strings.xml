@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EmilioPizza</string>
+    <string name="title">Emilio´s Pizza</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="orders">Orders</string>
+    <string name="historial">Historial</string>
+    <string name="cart">Cart</string>
+</resources>
