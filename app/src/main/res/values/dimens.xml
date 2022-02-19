@@ -7,4 +7,6 @@
     <dimen name="dimenSt_20">20sp</dimen>
     <dimen name="dimen_200">200dp</dimen>
     <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_15">15dp</dimen>
 </resources>

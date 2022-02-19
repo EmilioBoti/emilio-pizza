@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -25,18 +26,28 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
     override fun getItemCount(): Int {
         return list.size
     }
-    class OrderViewHolder(itemView: View, val listenerclick: OnclickItem) : RecyclerView.ViewHolder(itemView){
+    class OrderViewHolder(itemView: View, private val listenerClick: OnclickItem) : RecyclerView.ViewHolder(itemView){
         val name: TextView = itemView.findViewById(R.id.name)
-        val image: ImageView = itemView.findViewById(R.id.img)
+        val price: TextView = itemView.findViewById(R.id.price)
 
-        init { }
+        val image: ImageView = itemView.findViewById(R.id.img)
+        lateinit var addCart: Button
+
+        init {
+            addCart = itemView.findViewById(R.id.btnCart)
+        }
 
         fun binData(order: Order) {
             //Picasso.get().load(order.urlImg).into(image)
             name.text = order.name
+            price.text = "${order.price} €"
             itemView.setOnClickListener { view ->
-                listenerclick.clickItem(absoluteAdapterPosition, view)
+                listenerClick.clickItem(absoluteAdapterPosition, view)
             }
+            addCart.setOnClickListener {
+                listenerClick.clickAddCart(absoluteAdapterPosition)
+            }
+
         }
     }
 }

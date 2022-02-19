@@ -5,28 +5,56 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
+import com.example.emiliopizza.views.adapters.OrderTakenAdapter
+import com.example.emiliopizza.views.interactors.CartPresenterInput
+import com.example.emiliopizza.views.interfaces.ICartOrder
+import com.example.emiliopizza.views.models.Order
+import kotlinx.coroutines.launch
 
-class CartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class CartFragment : Fragment(),ICartOrder.PresenterView {
+    private lateinit var listOrderTaken: MutableList<Order>
+    private lateinit var cartPresenterInput: CartPresenterInput
+    private lateinit var containerOrderTaken: RecyclerView
+    private lateinit var orderTakenAdapter: OrderTakenAdapter
+    private lateinit var price: TextView
+    private var totalPrice: Float = 0f
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            //param1 = it.getString(ARG_PARAM1)
-            //param2 = it.getString(ARG_PARAM2)
-        }
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cart, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.title = "Cart List"
 
+        containerOrderTaken = view.findViewById(R.id.containerorderTaken)
+        price = view.findViewById(R.id.totalPrice)
+
+        cartPresenterInput = CartPresenterInput(this)
+        listOrderTaken = mutableListOf()
+
+        lifecycleScope.launch {
+            listOrderTaken = cartPresenterInput.getList()
+            setList()
+        }
+    }
+    private fun setList(){
+        val context = activity?.applicationContext
+        orderTakenAdapter = OrderTakenAdapter(context!!, listOrderTaken)
+        containerOrderTaken.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            adapter = orderTakenAdapter
+        }
+    }
+    override fun getListOrderTaken(list: MutableList<Order>, totalPrice: Float) {
+        price.text = "${totalPrice} €"
     }
 }

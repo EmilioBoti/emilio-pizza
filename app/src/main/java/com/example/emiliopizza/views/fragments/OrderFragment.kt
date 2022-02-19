@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,14 +16,14 @@ import com.example.emiliopizza.views.interfaces.IOrder
 import com.example.emiliopizza.views.interfaces.OnclickItem
 import com.example.emiliopizza.views.models.Model
 import com.example.emiliopizza.views.models.Order
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
-class OrderFragment : Fragment(), IOrder.PresenterView, OnclickItem , View.OnClickListener{
+class OrderFragment : Fragment(), IOrder.PresenterView, OnclickItem {
     lateinit var containerItemOrder: RecyclerView
     lateinit var list: MutableList<Order>
     lateinit var model: Model
     lateinit var orderInteractor: OrderInteractor
-    var btnAddCart: Button? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_order, container, false)
@@ -36,46 +33,41 @@ class OrderFragment : Fragment(), IOrder.PresenterView, OnclickItem , View.OnCli
 
         activity?.title = "List Orders"
         containerItemOrder = view.findViewById(R.id.containerItemOrder)
+
         model = Model()
 
         orderInteractor = OrderInteractor(this, model)
+
         lifecycleScope.launch {
             orderInteractor.getList()
         }
-
     }
-
     override fun getListOrder(list: MutableList<Order>) {
-        val orderAdapter = activity?.applicationContext?.let { OrderAdapter(it, list, this) }
+        this.list = list
+        val orderAdapter = activity?.applicationContext?.let { OrderAdapter(it,
+            this.list, this) }
         containerItemOrder.apply {
             layoutManager = LinearLayoutManager(activity?.applicationContext, RecyclerView.VERTICAL, false)
             adapter = orderAdapter
         }
     }
+    
+    override fun addItem(order: Order) {
+        Snackbar.make(containerItemOrder, "${order.name} added", Snackbar.LENGTH_SHORT).show()
+    }
+
     override fun clickItem(pos: Int, view: View) {
         val itemDesc = view.findViewById<LinearLayout>(R.id.item_desc)
         when(itemDesc.visibility){
-            View.GONE ->{
-                itemDesc.visibility = View.VISIBLE
-                btnAddCart = view.findViewById(R.id.btnCart)
-                btnAddCart?.setOnClickListener(this)
-
-                Toast.makeText(activity?.applicationContext, "${pos} ${itemDesc.visibility}", Toast.LENGTH_SHORT).show()
-            }
-            View.VISIBLE ->{
-                itemDesc.visibility = View.GONE
-                Toast.makeText(activity?.applicationContext, "${pos} ${itemDesc.visibility}", Toast.LENGTH_SHORT).show()
-            }
+            View.GONE -> itemDesc.visibility = View.VISIBLE
+            View.VISIBLE -> itemDesc.visibility = View.GONE
         }
     }
-
-    override fun onClick(p0: View?) {
-        activity?.supportFragmentManager
-            ?.beginTransaction()
-            ?.replace(R.id.viewContainer, CartFragment())
-            ?.addToBackStack("backTo")
-            ?.commit()
-        Toast.makeText(activity?.applicationContext, "Added", Toast.LENGTH_SHORT).show()
+    override fun clickAddCart(pos: Int) {
+        val order = list[pos]
+        lifecycleScope.launch {
+            orderInteractor.addItem(order)
+        }
     }
 
 }

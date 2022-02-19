@@ -38,5 +38,4 @@ class Model() : ModelData {
               listOrders
        }
     }
-
 }
