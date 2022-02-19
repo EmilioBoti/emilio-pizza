@@ -27,9 +27,9 @@ class Model() : ModelData {
         Order("Alberto", 4.5f, "https://images.telepizza.com/vol/es/images/content/promociones/iab.3p05_c.png"),
     )
 
-    override suspend fun getDatas() :User {
+    override suspend fun getDatas() :UserLogin{
         return withContext(Dispatchers.IO){
-            User(email, password);
+            UserLogin(email, password);
         }
     }
 
@@ -38,4 +38,5 @@ class Model() : ModelData {
               listOrders
        }
     }
+
 }

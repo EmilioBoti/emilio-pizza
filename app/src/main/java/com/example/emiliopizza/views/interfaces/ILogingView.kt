@@ -1,7 +1,7 @@
 package com.example.emiliopizza.views.interfaces
 
-import com.example.emiliopizza.views.models.User
+import com.example.emiliopizza.views.models.UserLogin
 
 interface ILogingView {
-    fun loging(user: User)
+    fun loging(user: UserLogin)
 }

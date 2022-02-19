@@ -1,9 +1,9 @@
 package com.example.emiliopizza.views.interfaces
 
 import com.example.emiliopizza.views.models.Order
-import com.example.emiliopizza.views.models.User
+import com.example.emiliopizza.views.models.UserLogin
 
 interface ModelData {
-    suspend fun getDatas():User
+    suspend fun getDatas():UserLogin
     suspend fun getOrderList(): MutableList<Order>
 }

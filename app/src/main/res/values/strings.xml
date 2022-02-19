@@ -16,4 +16,10 @@
     </string>
     <string name="addcart">Add</string>
     <string name="cartIcon">CartIcon</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="dateBorn">Born</string>
+    <string name="phone">Phone</string>
+    <string name="prefs_file">Preferents_file_data</string>
+
 </resources>

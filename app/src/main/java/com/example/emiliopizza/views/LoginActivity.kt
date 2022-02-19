@@ -10,7 +10,7 @@ import com.example.emiliopizza.R
 import com.example.emiliopizza.views.interactors.LoginPresenterInput
 import com.example.emiliopizza.views.interfaces.ILogingView
 import com.example.emiliopizza.views.models.Model
-import com.example.emiliopizza.views.models.User
+import com.example.emiliopizza.views.models.UserLogin
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity(), ILogingView {
@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity(), ILogingView {
         password = findViewById(R.id.password)
         btnLogin = findViewById(R.id.btnlogin)
     }
-    override fun loging(user: User) {
+    override fun loging(user: UserLogin) {
         Intent(this, MainActivity::class.java).apply {
             startActivity(this)
             finish()

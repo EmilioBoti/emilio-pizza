@@ -5,4 +5,6 @@
     <dimen name="dimen_100">100dp</dimen>
     <dimen name="dimenSt_25">25sp</dimen>
     <dimen name="dimenSt_20">20sp</dimen>
+    <dimen name="dimen_200">200dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
 </resources>
