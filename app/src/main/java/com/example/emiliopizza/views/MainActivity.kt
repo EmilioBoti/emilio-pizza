@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.emiliopizza.R
 import com.example.emiliopizza.views.fragments.CartFragment
+import com.example.emiliopizza.views.fragments.HistorialFragment
 import com.example.emiliopizza.views.fragments.OrderFragment
 import com.example.emiliopizza.views.fragments.PanelFragment
 
@@ -17,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        title = "Panel"
         supportFragmentManager.beginTransaction()
             .replace(R.id.viewContainer, PanelFragment())
             .commit()
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             R.id.cart -> {
                 navigateGoBack(CartFragment())
             }R.id.historial -> {
-
+                navigateGoBack(HistorialFragment())
             }
         }
         return super.onOptionsItemSelected(item)

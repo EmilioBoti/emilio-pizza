@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
@@ -42,7 +43,8 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
             name.text = order.name
             price.text = "${order.price} €"
             itemView.setOnClickListener { view ->
-                listenerClick.clickItem(absoluteAdapterPosition, view)
+                val itemDesc = view.findViewById<LinearLayout>(R.id.item_desc)
+                listenerClick.clickItem(absoluteAdapterPosition, itemDesc)
             }
             addCart.setOnClickListener {
                 listenerClick.clickAddCart(absoluteAdapterPosition)

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -18,13 +19,13 @@ import com.example.emiliopizza.views.interfaces.ICartOrder
 import com.example.emiliopizza.views.models.Order
 import kotlinx.coroutines.launch
 
-class CartFragment : Fragment(),ICartOrder.PresenterView {
+class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener {
     private lateinit var listOrderTaken: MutableList<Order>
     private lateinit var cartPresenterInput: CartPresenterInput
     private lateinit var containerOrderTaken: RecyclerView
     private lateinit var orderTakenAdapter: OrderTakenAdapter
+    private lateinit var btnPay: Button
     private lateinit var price: TextView
-    private var totalPrice: Float = 0f
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_cart, container, false)
@@ -37,6 +38,8 @@ class CartFragment : Fragment(),ICartOrder.PresenterView {
 
         containerOrderTaken = view.findViewById(R.id.containerorderTaken)
         price = view.findViewById(R.id.totalPrice)
+        btnPay = view.findViewById(R.id.btnPay)
+        btnPay.setOnClickListener(this)
 
         cartPresenterInput = CartPresenterInput(this)
         listOrderTaken = mutableListOf()
@@ -55,6 +58,19 @@ class CartFragment : Fragment(),ICartOrder.PresenterView {
         }
     }
     override fun getListOrderTaken(list: MutableList<Order>, totalPrice: Float) {
-        price.text = "${totalPrice} €"
+        price.text = "${totalPrice}€"
+    }
+
+    override fun hasPay(paid: Boolean) {
+        lifecycleScope.launch {
+            if (paid) Toast.makeText(activity?.applicationContext, "The pay has been successfully", Toast.LENGTH_SHORT).show()
+            else Toast.makeText(activity?.applicationContext, "Error", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        lifecycleScope.launch {
+            cartPresenterInput.payOrder()
+        }
     }
 }

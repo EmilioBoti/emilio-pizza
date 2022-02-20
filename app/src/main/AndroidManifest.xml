@@ -14,7 +14,7 @@
         >
         <activity android:name=".views.LoginActivity"
             android:exported="true"
-            android:theme="@style/fullScreen"
+            android:theme="@style/splashScreen"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,10 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.fragments.CartFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/containerorderTaken"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/payMethod"
@@ -23,6 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="horizontal"
         android:gravity="end|center"
+        android:background="@color/white"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +43,7 @@
             />
 
         <Button
-            android:id="@+id/pay"
+            android:id="@+id/btnPay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pay"

@@ -5,13 +5,13 @@
         <item name="android:layout_marginRight">@dimen/dimen_50</item>
         <item name="android:layout_marginBottom">@dimen/dimen_50</item>
     </style>
-    <style name="sd">
-        <item name="android:layout_marginStart">@dimen/dimen_5</item>
-        <item name="android:layout_marginEnd">@dimen/dimen_5</item>
-    </style>
     <style name="icons">
         <item name="android:layout_marginTop">@dimen/dimen_5</item>
         <item name="android:layout_marginStart">@dimen/dimen_5</item>
         <item name="android:layout_marginEnd">@dimen/dimen_20</item>
+    </style>
+    <style name="panelBtn" parent="Theme.EmilioPizza">
+        <item name="android:padding">@dimen/dimen_20</item>
+        <item name="backgroundTint">@color/purple_500</item>
     </style>
 </resources>

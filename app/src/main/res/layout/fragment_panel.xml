@@ -7,5 +7,40 @@
     tools:context=".views.fragments.PanelFragment">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10"
+        >
+        <Button
+            android:id="@+id/btnOrders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/orders"
+            style="@style/panelBtn"
+            />
+        <Button
+            android:id="@+id/btnHistorial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/historial"
+            style="@style/panelBtn"
+
+            />
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            style="@style/panelBtn"
+        />
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,8 +21,10 @@ class LoginActivity : AppCompatActivity(), ILogingView {
     lateinit var presenterInput: LoginPresenterInput
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.fullScreen)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         init()
 
         model = Model()

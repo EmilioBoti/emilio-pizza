@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,16 +52,19 @@ class OrderFragment : Fragment(), IOrder.PresenterView, OnclickItem {
             adapter = orderAdapter
         }
     }
-    
+
     override fun addItem(order: Order) {
         Snackbar.make(containerItemOrder, "${order.name} added", Snackbar.LENGTH_SHORT).show()
     }
 
     override fun clickItem(pos: Int, view: View) {
-        val itemDesc = view.findViewById<LinearLayout>(R.id.item_desc)
-        when(itemDesc.visibility){
-            View.GONE -> itemDesc.visibility = View.VISIBLE
-            View.VISIBLE -> itemDesc.visibility = View.GONE
+        when(view.visibility){
+            View.GONE -> {
+                view.visibility = View.VISIBLE
+            }
+            View.VISIBLE -> {
+                view.visibility = View.GONE
+            }
         }
     }
     override fun clickAddCart(pos: Int) {

@@ -16,4 +16,9 @@
     <style name="fullScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowActionBar">false</item>
     </style>
+    <style name="splashScreen" parent="Theme.EmilioPizza"
+        >
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>
