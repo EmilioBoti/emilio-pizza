@@ -31,8 +31,9 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
     class OrderViewHolder(itemView: View, private val listenerClick: OnclickItem) : RecyclerView.ViewHolder(itemView){
         val name: TextView = itemView.findViewById(R.id.name)
         val price: TextView = itemView.findViewById(R.id.price)
-
         val image: ImageView = itemView.findViewById(R.id.img)
+        val descText: TextView = itemView.findViewById(R.id.descText)
+
         lateinit var addCart: Button
 
         init {
@@ -43,6 +44,8 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
             Picasso.get().load(order.urlImg).into(image)
             name.text = order.name
             price.text = "${order.price} €"
+            descText.text = order.desc
+
             itemView.setOnClickListener { view ->
                 val itemDesc = view.findViewById<LinearLayout>(R.id.item_desc)
                 listenerClick.clickItem(absoluteAdapterPosition, itemDesc)

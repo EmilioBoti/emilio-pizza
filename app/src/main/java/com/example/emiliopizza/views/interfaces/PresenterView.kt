@@ -1,5 +1,5 @@
 package com.example.emiliopizza.views.interfaces
 
 interface PresenterView {
-    suspend fun login()
+    suspend fun login(email: String, password: String)
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.emiliopizza.R
 import com.example.emiliopizza.views.interactors.LoginPresenterInput
@@ -32,7 +33,7 @@ class LoginActivity : AppCompatActivity(), ILogingView {
 
         btnLogin.setOnClickListener {
             lifecycleScope.launch {
-                presenterInput.login()
+                presenterInput.login(email.text.toString(),password.text.toString() )
             }
         }
     }
@@ -41,10 +42,15 @@ class LoginActivity : AppCompatActivity(), ILogingView {
         password = findViewById(R.id.password)
         btnLogin = findViewById(R.id.btnlogin)
     }
+
     override fun loging(user: UserLogin) {
         Intent(this, MainActivity::class.java).apply {
             startActivity(this)
             finish()
         }
+    }
+
+    override fun errorLogin(error: String) {
+        Toast.makeText(applicationContext, error, Toast.LENGTH_SHORT).show()
     }
 }

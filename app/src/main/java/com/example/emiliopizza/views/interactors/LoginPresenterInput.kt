@@ -5,8 +5,12 @@ import com.example.emiliopizza.views.interfaces.PresenterView
 import com.example.emiliopizza.views.models.Model
 
 class LoginPresenterInput(val view: ILogingView, val model: Model): PresenterView {
-    override suspend fun login(){
+    override suspend fun login(email: String, password: String) {
         val user = model.getDatas()
-        view.loging(user)
+
+        if ((email.isNotEmpty() && password.isNotEmpty()) && email == user.email && password == user.password)
+            view.loging(user)
+        else view.errorLogin("Error")
+
     }
 }

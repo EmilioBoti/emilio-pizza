@@ -4,10 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
 import com.example.emiliopizza.views.models.Order
+import com.squareup.picasso.Picasso
 
 class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): RecyclerView.Adapter<OrderTakenAdapter.TakenViewHolder>() {
 
@@ -27,11 +29,13 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): Rec
     class TakenViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.nameTaken)
         val price: TextView = itemView.findViewById(R.id.price)
-
+        val img: ImageView = itemView.findViewById(R.id.img)
 
         fun binData(order: Order) {
             name.text = order.name
             price.text = order.price.toString()
+            Picasso.get()
+                .load(order.urlImg).into(img)
         }
     }
 }
