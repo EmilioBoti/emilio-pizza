@@ -26,9 +26,12 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): Rec
 
     class TakenViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.nameTaken)
+        val price: TextView = itemView.findViewById(R.id.price)
+
 
         fun binData(order: Order) {
             name.text = order.name
+            price.text = order.price.toString()
         }
     }
 }
