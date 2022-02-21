@@ -25,6 +25,7 @@
         android:orientation="horizontal"
         android:gravity="end|center"
         android:background="@color/white"
+        android:padding="@dimen/dimen_15"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -39,9 +40,7 @@
             android:layout_height="wrap_content"
             android:text="@string/price"
             android:layout_margin="@dimen/dimen_10"
-
             />
-
         <Button
             android:id="@+id/btnPay"
             android:layout_width="wrap_content"
