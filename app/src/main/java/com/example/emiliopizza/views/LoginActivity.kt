@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity(), ILogingView {
 
         btnLogin.setOnClickListener {
             lifecycleScope.launch {
-                presenterInput.login(email.text.toString(),password.text.toString() )
+                presenterInput.login(email.text.toString().trim(),password.text.toString().trim() )
             }
         }
     }
