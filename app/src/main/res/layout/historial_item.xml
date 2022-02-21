@@ -10,7 +10,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:cardElevation="@dimen/dimen_5"
-        app:contentPadding="@dimen/dimen_10"
+        app:contentPadding="@dimen/dimen_15"
         android:layout_margin="@dimen/dimen_10"
         >
 
