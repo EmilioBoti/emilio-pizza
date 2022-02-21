@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
 import com.example.emiliopizza.views.interfaces.OnclickItem
 import com.example.emiliopizza.views.models.Order
+import com.squareup.picasso.Picasso
 
 class OrderAdapter(val context: Context,val list: MutableList<Order>, val listenerclick: OnclickItem) : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
 
@@ -39,7 +40,7 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
         }
 
         fun binData(order: Order) {
-            //Picasso.get().load(order.urlImg).into(image)
+            Picasso.get().load(order.urlImg).into(image)
             name.text = order.name
             price.text = "${order.price} €"
             itemView.setOnClickListener { view ->

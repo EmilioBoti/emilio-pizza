@@ -2,6 +2,7 @@ package com.example.emiliopizza.views
 
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.emiliopizza.R
@@ -9,6 +10,7 @@ import com.example.emiliopizza.views.interactors.ProfilePresenterInput
 import com.example.emiliopizza.views.interfaces.IProfile
 import com.example.emiliopizza.views.models.User
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.squareup.picasso.Picasso
 
 class ProfileActivity: AppCompatActivity(), IProfile.PresenterView {
     lateinit var name: EditText
@@ -19,12 +21,14 @@ class ProfileActivity: AppCompatActivity(), IProfile.PresenterView {
     lateinit var btnEdit: FloatingActionButton
     lateinit var btnSave: FloatingActionButton
     lateinit var profilePresenter: ProfilePresenterInput
-
+    
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+
         init()
+
         profilePresenter = ProfilePresenterInput(this, this)
         profilePresenter.getDataProfile()
 

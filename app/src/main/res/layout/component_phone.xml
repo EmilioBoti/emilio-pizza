@@ -33,8 +33,9 @@
             android:layout_toEndOf="@id/phoneIcon"
             android:background="@null"
             android:ems="10"
-            android:hint="@string/phone"
             android:enabled="false"
+            android:hint="@string/phone"
+            android:inputType="phone"
             android:textColor="@color/black" />
     </RelativeLayout>
 </merge>

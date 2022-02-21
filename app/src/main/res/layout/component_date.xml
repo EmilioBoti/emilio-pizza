@@ -32,8 +32,9 @@
             android:layout_toEndOf="@id/dateIcon"
             android:background="@null"
             android:ems="10"
-            android:hint="@string/dateBorn"
             android:enabled="false"
+            android:hint="@string/dateBorn"
+            android:inputType="date"
             android:textColor="@color/black" />
     </RelativeLayout>
 </merge>
