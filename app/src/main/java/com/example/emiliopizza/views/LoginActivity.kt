@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity(), ILogingView {
             }
         }
     }
+
     private fun init(){
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)

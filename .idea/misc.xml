@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/component_address.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/component_date.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/component_email.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/component_name.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/component_phone.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/menu/menu_item.xml" value="0.25" />
         <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1845" />
         <entry key="app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.1845" />

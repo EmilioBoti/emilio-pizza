@@ -26,7 +26,6 @@ class ProfileActivity: AppCompatActivity(), IProfile.PresenterView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-
         init()
 
         profilePresenter = ProfilePresenterInput(this, this)
@@ -36,7 +35,6 @@ class ProfileActivity: AppCompatActivity(), IProfile.PresenterView {
             btnSave.isEnabled = true
             btnEdit.isEnabled = false
             enableFields()
-            //Toast.makeText(applicationContext, "Edit", Toast.LENGTH_SHORT).show()
         }
         btnSave.setOnClickListener {
             btnSave.isEnabled = false
@@ -44,7 +42,6 @@ class ProfileActivity: AppCompatActivity(), IProfile.PresenterView {
             disenableFields()
             profilePresenter.saveProfileData(
                 User(name.text.toString(),email.text.toString(),address.text.toString(),date.text.toString(),phone.text.toString(),))
-            Toast.makeText(applicationContext, "Saved", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -58,8 +55,6 @@ class ProfileActivity: AppCompatActivity(), IProfile.PresenterView {
         address.setText(user.address)
         date.setText(user.date)
         phone.setText(user.phone)
-        Toast.makeText(applicationContext, "${user.name}", Toast.LENGTH_SHORT).show()
-
     }
 
     private fun disenableFields(){

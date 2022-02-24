@@ -22,12 +22,15 @@ object DBService {
     fun removeOrder(index: Int){
         listOrderTaken.removeAt(index)
     }
+
     fun getListOrder(): MutableList<Order>{
         return listOrderTaken
     }
+
     fun getListOrdered(): MutableList<Ordered>{
         return listHistorilOrder
     }
+
     fun clearlist(){
         listOrderTaken.clear()
     }

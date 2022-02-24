@@ -36,6 +36,9 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): Rec
             price.text = order.price.toString()
             Picasso.get()
                 .load(order.urlImg).into(img)
+
+            
+
         }
     }
 }

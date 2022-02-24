@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="loginFields">
+        <item name="android:padding">@dimen/dimen_20</item>
         <item name="android:layout_marginLeft">@dimen/dimen_50</item>
         <item name="android:layout_marginRight">@dimen/dimen_50</item>
         <item name="android:layout_marginBottom">@dimen/dimen_50</item>
@@ -14,4 +15,6 @@
         <item name="android:padding">@dimen/dimen_20</item>
         <item name="backgroundTint">@color/purple_500</item>
     </style>
+
+    <dimen name="dimen_80">80dp</dimen>
 </resources>

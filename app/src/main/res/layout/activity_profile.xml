@@ -16,22 +16,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/dimen_5"
         />
-    <include
-        layout="@layout/component_name"
-        />
-    <include
-        layout="@layout/component_email"
-        />
-    <include
-        layout="@layout/component_address"
-        />
-    <include
-        layout="@layout/component_date"
-        />
-    <include
-        layout="@layout/component_phone"
-        />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dimen_50"
+        app:layout_constraintTop_toBottomOf="@id/imgProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <include
+            layout="@layout/component_name"
+            />
+        <include
+            layout="@layout/component_email"
+            />
+        <include
+            layout="@layout/component_address"
+            />
+        <include
+            layout="@layout/component_date"
+            />
+        <include
+            layout="@layout/component_phone"
+            />
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnSaveProfile"
         android:layout_width="wrap_content"

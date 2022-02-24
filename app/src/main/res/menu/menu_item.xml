@@ -5,7 +5,7 @@
         android:id="@+id/cartMenu"
         android:icon="@drawable/shopping_cart_24"
         app:showAsAction="ifRoom"
-        >
+        android:title="@string/cart">
     </item>
     <group
         android:menuCategory="container"
