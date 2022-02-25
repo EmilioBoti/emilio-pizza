@@ -12,9 +12,7 @@
         <item name="android:layout_marginEnd">@dimen/dimen_20</item>
     </style>
     <style name="panelBtn" parent="Theme.EmilioPizza">
-        <item name="android:padding">@dimen/dimen_20</item>
+        <item name="android:padding">@dimen/dimen_30</item>
         <item name="backgroundTint">@color/purple_500</item>
     </style>
-
-    <dimen name="dimen_80">80dp</dimen>
 </resources>

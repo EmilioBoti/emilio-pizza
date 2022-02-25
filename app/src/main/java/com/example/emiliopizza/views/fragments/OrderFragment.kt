@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +12,7 @@ import com.example.emiliopizza.R
 import com.example.emiliopizza.views.adapters.OrderAdapter
 import com.example.emiliopizza.views.interactors.OrderInteractor
 import com.example.emiliopizza.views.interfaces.IOrder
-import com.example.emiliopizza.views.interfaces.OnclickItem
+import com.example.emiliopizza.views.interfaces.adapterClick.OnclickItem
 import com.example.emiliopizza.views.models.Model
 import com.example.emiliopizza.views.models.Order
 import com.google.android.material.snackbar.Snackbar
