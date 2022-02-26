@@ -25,7 +25,7 @@ import com.example.emiliopizza.views.models.Order
 import com.example.emiliopizza.views.models.Ordered
 import kotlinx.coroutines.launch
 
-class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, OnclickItem{
+class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, OnclickItem {
     private lateinit var listOrderTaken: MutableList<Order>
     private lateinit var cartPresenterInput: CartPresenterInput
     private lateinit var containerOrderTaken: RecyclerView
@@ -57,6 +57,7 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
             setList()
         }
     }
+
     private fun setList(){
         val context = activity?.applicationContext
         orderTakenAdapter = OrderTakenAdapter(context!!, listOrderTaken, this)
@@ -91,6 +92,7 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
 
     override fun clickItem(pos: Int, view: View) {
         AlertDialog.Builder(activity)
+            .setTitle("Delete ${listOrderTaken[pos].name}")
             .setMessage("Are you sure want to delete it?")
             .setPositiveButton("Accept", DialogInterface.OnClickListener{ dialogInterface, it ->
                 lifecycleScope.launch {
