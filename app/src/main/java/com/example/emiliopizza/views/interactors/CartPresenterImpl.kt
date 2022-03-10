@@ -14,7 +14,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
 
-class CartPresenterInput(val viewer: ICartOrder.PresenterView): ICartOrder.Presenter {
+class CartPresenterImpl(val viewer: ICartOrder.PresenterView): ICartOrder.Presenter {
     private lateinit var list: MutableList<Order>
     var totalPrice: Float = 0f
 

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -14,14 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
 import com.example.emiliopizza.views.adapters.OrderTakenAdapter
-import com.example.emiliopizza.views.interactors.CartPresenterInput
+import com.example.emiliopizza.views.interactors.CartPresenterImpl
 import com.example.emiliopizza.views.interfaces.ICartOrder
 import com.example.emiliopizza.views.models.Order
 import kotlinx.coroutines.launch
 
 class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener {
     private lateinit var listOrderTaken: MutableList<Order>
-    private lateinit var cartPresenterInput: CartPresenterInput
+    private lateinit var cartPresenterInput: CartPresenterImpl
     private lateinit var containerOrderTaken: RecyclerView
     private lateinit var orderTakenAdapter: OrderTakenAdapter
     private lateinit var btnPay: Button
@@ -41,7 +40,7 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener {
         btnPay = view.findViewById(R.id.btnPay)
         btnPay.setOnClickListener(this)
 
-        cartPresenterInput = CartPresenterInput(this)
+        cartPresenterInput = CartPresenterImpl(this)
         listOrderTaken = mutableListOf()
 
         lifecycleScope.launch {
@@ -63,7 +62,9 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener {
 
     override fun hasPay(paid: Boolean) {
         lifecycleScope.launch {
-            if (paid) Toast.makeText(activity?.applicationContext, "The pay has been successfully", Toast.LENGTH_SHORT).show()
+            if (paid){
+                Toast.makeText(activity?.applicationContext, "The pay has been successfully", Toast.LENGTH_SHORT).show()
+            }
             else Toast.makeText(activity?.applicationContext, "Error", Toast.LENGTH_SHORT).show()
         }
     }
