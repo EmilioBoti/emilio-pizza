@@ -8,14 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
+import com.example.emiliopizza.views.interfaces.adapterClick.OnclickItem
 import com.example.emiliopizza.views.models.Order
 import com.squareup.picasso.Picasso
 
-class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): RecyclerView.Adapter<OrderTakenAdapter.TakenViewHolder>() {
+class OrderTakenAdapter(val context: Context, val list: MutableList<Order>, val listener: OnclickItem): RecyclerView.Adapter<OrderTakenAdapter.TakenViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TakenViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.order_taken, null)
-        return TakenViewHolder(view)
+        return TakenViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: TakenViewHolder, position: Int) {
@@ -26,10 +27,11 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): Rec
         return list.size
     }
 
-    class TakenViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class TakenViewHolder(itemView: View,val listener: OnclickItem): RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.nameTaken)
         val price: TextView = itemView.findViewById(R.id.price)
         val img: ImageView = itemView.findViewById(R.id.img)
+        val btnremove: ImageView = itemView.findViewById(R.id.removeItem)
 
         fun binData(order: Order) {
             name.text = order.name
@@ -37,8 +39,9 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>): Rec
             Picasso.get()
                 .load(order.urlImg).into(img)
 
-            
-
+            btnremove.setOnClickListener {
+                listener.clickItem(absoluteAdapterPosition, it)
+            }
         }
     }
 }

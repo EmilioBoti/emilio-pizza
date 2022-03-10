@@ -19,8 +19,8 @@ object DBService {
             listHistorilOrder.add(ordered)
         }
     }
-    fun removeOrder(index: Int){
-        listOrderTaken.removeAt(index)
+    fun removeOrder(index: Int): Order {
+        return listOrderTaken.removeAt(index)
     }
 
     fun getListOrder(): MutableList<Order>{

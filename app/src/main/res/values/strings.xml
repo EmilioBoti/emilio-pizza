@@ -26,5 +26,6 @@
     <string name="price">Price</string>
     <string name="titleCart">My Orders</string>
     <string name="go">Go</string>
+    <string name="countItems">Count</string>
 
 </resources>

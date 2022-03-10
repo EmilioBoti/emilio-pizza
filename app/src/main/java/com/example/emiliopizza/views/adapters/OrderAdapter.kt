@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emiliopizza.R
-import com.example.emiliopizza.views.interfaces.OnclickItem
+import com.example.emiliopizza.views.interfaces.adapterClick.OnclickItem
 import com.example.emiliopizza.views.models.Order
 import com.squareup.picasso.Picasso
 
