@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/activity_login.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/fragment_historial.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/historial_item.xml" value="0.33" />
+        <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/order_taken.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1845" />
         <entry key="app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.1845" />
         <entry key="app/src/main/res/drawable/img_radius.xml" value="0.19" />

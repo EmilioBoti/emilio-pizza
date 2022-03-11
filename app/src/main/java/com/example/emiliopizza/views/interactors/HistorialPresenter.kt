@@ -7,6 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class HistorialPresenter(private val viwer: IHistorial.PresenterView): IHistorial.Presenter {
+    var totalPrice: Int = 0
 
     override suspend fun getListOrdered() {
         val list = withContext(Dispatchers.IO){

@@ -37,7 +37,6 @@ class HistorialFragment : Fragment(), IHistorial.PresenterView {
         lifecycleScope.launch {
             historialPresenter.getListOrdered()
         }
-
     }
 
     override fun getListItemOrdered(listOrdered: MutableList<Ordered>) {

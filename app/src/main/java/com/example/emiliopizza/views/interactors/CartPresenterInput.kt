@@ -12,11 +12,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import kotlin.math.round
 
-<<<<<<< HEAD:app/src/main/java/com/example/emiliopizza/views/interactors/CartPresenterImpl.kt
 class CartPresenterInput(val viewer: ICartOrder.PresenterView): ICartOrder.Presenter {
-=======
-class CartPresenterInput(private val viewer: ICartOrder.PresenterView): ICartOrder.Presenter {
->>>>>>> d0715c554a681c3d56130c6620d77c532610af3d:app/src/main/java/com/example/emiliopizza/views/interactors/CartPresenterInput.kt
     private lateinit var list: MutableList<Order>
     private var totalPrice: Float = 0f
 
@@ -31,7 +27,7 @@ class CartPresenterInput(private val viewer: ICartOrder.PresenterView): ICartOrd
     override suspend fun payOrder() {
         val date = LocalDate.now()
         val dateLocal = LocalDateTime.now()
-        val ordered = Ordered("Any Name",date.toString() ,dateLocal.hour.toString(),dateLocal.minute.toString(), list)
+        val ordered = Ordered("Any Name",date.toString() ,dateLocal.hour.toString(),dateLocal.minute.toString(), list, 0)
 
         withContext(Dispatchers.IO){
             DBService.orderPaid(ordered)

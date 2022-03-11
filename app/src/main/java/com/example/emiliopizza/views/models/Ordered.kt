@@ -5,5 +5,6 @@ data class Ordered(
     val date: String,
     val hour: String,
     val minute: String,
-    val listItem: MutableList<Order>
+    val listItem: MutableList<Order>,
+    val totalPrice: Int = 0
     )

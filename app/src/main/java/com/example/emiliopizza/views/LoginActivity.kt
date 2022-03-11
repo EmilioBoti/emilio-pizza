@@ -3,8 +3,10 @@ package com.example.emiliopizza.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.emiliopizza.R
@@ -29,10 +31,15 @@ class LoginActivity : AppCompatActivity(), ILogingView {
         init()
 
         model = Model()
-        presenterInput = LoginPresenterInput(this, model)
+        presenterInput = LoginPresenterInput(this, model, applicationContext)
+
+        lifecycleScope.launch {
+            presenterInput.getDataUser()
+        }
 
         btnLogin.setOnClickListener {
             lifecycleScope.launch {
+
                 presenterInput.login(email.text.toString().trim(),password.text.toString().trim() )
             }
         }
@@ -45,9 +52,10 @@ class LoginActivity : AppCompatActivity(), ILogingView {
     }
 
     override fun loging(user: UserLogin) {
+        finish()
+
         Intent(this, MainActivity::class.java).apply {
             startActivity(this)
-            finish()
         }
     }
 

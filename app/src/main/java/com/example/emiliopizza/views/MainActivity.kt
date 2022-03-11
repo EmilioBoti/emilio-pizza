@@ -14,6 +14,7 @@ import com.example.emiliopizza.views.fragments.PanelFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.fullScreen)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
