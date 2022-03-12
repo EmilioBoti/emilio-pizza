@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             R.id.cart -> {
                 navigateGoBack(CartFragment())
             }R.id.historial -> {
-                navigate(HistorialFragment())
+                navigateGoBack(HistorialFragment())
             }
         }
         return super.onOptionsItemSelected(item)

@@ -13,14 +13,8 @@ import com.example.emiliopizza.views.ProfileActivity
 import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
 
-class PanelFragment : Fragment(), View.OnClickListener {
+class PanelFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
-    private lateinit var btnOrder: Button
-    private lateinit var btnHistorial: Button
-    private lateinit var btnProfile: Button
-    private lateinit var tabOrder: TabItem
-    private lateinit var tabHistorial: TabItem
-    private lateinit var tabProfile: TabItem
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_panel, container, false)
@@ -30,20 +24,7 @@ class PanelFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = "Panel"
 
-        /*
-        btnOrder = view.findViewById(R.id.btnOrders)
-        btnHistorial = view.findViewById(R.id.btnHistorial)
-        btnProfile = view.findViewById(R.id.btnProfile)*/
-        /*
-        tabOrder = view.findViewById(R.id.tabOrders)
-        tabHistorial = view.findViewById(R.id.tabHistorial)
-        tabProfile = view.findViewById(R.id.tabProfile)
-        */
-
         navigate(OrderFragment())
-        /*btnOrder.setOnClickListener(this)
-        btnHistorial.setOnClickListener(this)
-        btnProfile.setOnClickListener(this)*/
 
         tabLayout = view.findViewById(R.id.tabsContainer)
         tabLayout.elevation = 4f
@@ -69,21 +50,6 @@ class PanelFragment : Fragment(), View.OnClickListener {
 
             }
         })
-    }
-
-    override fun onClick(view: View?) {
-        /*when(view?.id){
-            R.id.btnProfile -> {
-                Intent(activity, ProfileActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-            R.id.btnOrders -> {
-                navigateGoBack(OrderFragment())
-            }R.id.btnHistorial ->{
-                navigateGoBack(HistorialFragment())
-            }
-        }*/
     }
 
     private fun navigate( fragment: Fragment){
