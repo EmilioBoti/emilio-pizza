@@ -24,12 +24,14 @@ class HistorialAdapter(val context: Context, val list: MutableList<Ordered>): Re
         return list.size
     }
     class HistorialViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val name: TextView = itemView.findViewById(R.id.orderName)
-        val date: TextView = itemView.findViewById(R.id.orderDate)
+        private val name: TextView = itemView.findViewById(R.id.orderName)
+        private val date: TextView = itemView.findViewById(R.id.orderDate)
+        private val pricePaid: TextView = itemView.findViewById(R.id.pricePaid)
 
         fun binData(ordered: Ordered) {
             name.text = ordered.name
             date.text = "${ordered.date}: hour ${ordered.hour}:${ordered.minute}"
+            pricePaid.text = "${ordered.totalPrice} €"
         }
     }
 }

@@ -8,6 +8,7 @@
         <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/historial_item.xml" value="0.33" />
         <entry key="..\:/Users/emili/Desktop/emilio-pizza/app/src/main/res/layout/order_taken.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1845" />
+        <entry key="app/src/main/res/drawable/bottom_radius.xml" value="0.1615" />
         <entry key="app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.1845" />
         <entry key="app/src/main/res/drawable/img_radius.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/local_pizza_24.xml" value="0.165" />
@@ -18,6 +19,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/bottom_nav.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/layout/component_address.xml" value="0.335" />
         <entry key="app/src/main/res/layout/component_date.xml" value="0.335" />
         <entry key="app/src/main/res/layout/component_email.xml" value="0.375" />
@@ -27,7 +29,7 @@
         <entry key="app/src/main/res/layout/fragment_historial.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_order.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_panel.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/historial_item.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/historial_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/order_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/order_taken.xml" value="0.375" />
         <entry key="app/src/main/res/layout/welcome_screen.xml" value="0.23007246376811594" />

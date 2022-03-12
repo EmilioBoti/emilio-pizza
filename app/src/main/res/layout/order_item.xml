@@ -44,6 +44,7 @@
                         android:layout_marginBottom="@dimen/dimen_5"
                         android:textColor="@color/black"
                         android:textSize="@dimen/dimenSt_20"
+                        android:textStyle="bold"
                         android:text="@string/email"
                         />
                     <TextView

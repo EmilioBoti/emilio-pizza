@@ -11,7 +11,7 @@ interface ICartOrder {
     }
     interface Presenter{
         suspend fun getList(): MutableList<Order>
-        suspend fun payOrder()
+        suspend fun payOrder(listOrderTaken: MutableList<Order>)
         suspend fun removeItem(pos: Int)
     }
 }

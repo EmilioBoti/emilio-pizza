@@ -12,7 +12,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import kotlin.math.round
 
-class CartPresenterInput(val viewer: ICartOrder.PresenterView): ICartOrder.Presenter {
+class CartPresenterInput(private val viewer: ICartOrder.PresenterView): ICartOrder.Presenter {
     private lateinit var list: MutableList<Order>
     private var totalPrice: Float = 0f
 
@@ -21,13 +21,15 @@ class CartPresenterInput(val viewer: ICartOrder.PresenterView): ICartOrder.Prese
             DBService.getListOrder()
         }
         calculatePrice()
+        viewer.getListOrderTaken(list, totalPrice, list.size)
         return list
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    override suspend fun payOrder() {
+    override suspend fun payOrder(listOrderTaken: MutableList<Order>) {
         val date = LocalDate.now()
         val dateLocal = LocalDateTime.now()
-        val ordered = Ordered("Any Name",date.toString() ,dateLocal.hour.toString(),dateLocal.minute.toString(), list, 0)
+        calculatePrice()
+        val ordered = Ordered("${listOrderTaken[0].name}...",date.toString() ,dateLocal.hour.toString(),dateLocal.minute.toString(), list, totalPrice)
 
         withContext(Dispatchers.IO){
             DBService.orderPaid(ordered)
@@ -40,13 +42,13 @@ class CartPresenterInput(val viewer: ICartOrder.PresenterView): ICartOrder.Prese
         val removedOrder = withContext(Dispatchers.IO){
             DBService.removeOrder(pos)
         }
-        viewer.removedItem(removedOrder, pos)
         calculatePrice()
+        viewer.removedItem(removedOrder, pos)
+        viewer.getListOrderTaken(list, totalPrice, list.size)
     }
 
     private fun calculatePrice(){
         totalPrice = 0f
         list.forEach { order -> totalPrice += round(order.price) }
-        viewer.getListOrderTaken(list, totalPrice, list.size)
     }
 }

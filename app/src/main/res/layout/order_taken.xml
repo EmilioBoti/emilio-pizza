@@ -28,27 +28,31 @@
                 android:padding="@dimen/dimen_5"
                 android:layout_gravity="center_vertical"
                 >
+
                 <LinearLayout
                     android:id="@+id/fields"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_gravity="center_horizontal"
                     android:gravity="start"
-                    >
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/nameTaken"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/dimenSt_20"
                         android:text="@string/name"
-                        />
+                        android:textColor="@color/teal_700"
+                        android:textSize="@dimen/dimenSt_20"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/purple_500"
+                        android:textColor="@color/black"
+                        android:textStyle="italic"
+
                         />
                 </LinearLayout>
 

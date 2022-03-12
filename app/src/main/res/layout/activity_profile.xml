@@ -10,7 +10,7 @@
         android:id="@+id/imgProfile"
         android:layout_width="@dimen/dimen_200"
         android:layout_height="@dimen/dimen_200"
-        android:src="@drawable/xy6k5jjqv0klllevmue3"
+        android:src="@drawable/emilio_pizza"
         android:layout_marginTop="@dimen/dimen_20"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

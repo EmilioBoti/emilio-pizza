@@ -32,7 +32,7 @@
                     android:textColor="@color/teal_700"
                     android:textSize="@dimen/dimenSt_20"
                     android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_10"
                     />
                 <TextView
                     android:id="@+id/orderDate"
@@ -48,8 +48,12 @@
                 android:id="@+id/pricePaid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/content"
                 android:layout_alignParentEnd="true"
-                android:text="@string/app_name" />
+                android:text="@string/app_name"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/dimenSt_15" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

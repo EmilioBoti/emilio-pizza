@@ -6,5 +6,5 @@ data class Ordered(
     val hour: String,
     val minute: String,
     val listItem: MutableList<Order>,
-    val totalPrice: Int = 0
+    val totalPrice: Float = 0f
     )

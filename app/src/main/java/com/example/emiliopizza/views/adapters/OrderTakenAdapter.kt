@@ -35,7 +35,7 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>, val 
 
         fun binData(order: Order) {
             name.text = order.name
-            price.text = order.price.toString()
+            price.text = "${order.price} €"
             Picasso.get()
                 .load(order.urlImg).into(img)
 

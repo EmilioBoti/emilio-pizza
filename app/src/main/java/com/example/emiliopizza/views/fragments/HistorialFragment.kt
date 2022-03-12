@@ -42,7 +42,8 @@ class HistorialFragment : Fragment(), IHistorial.PresenterView {
     override fun getListItemOrdered(listOrdered: MutableList<Ordered>) {
         historialAdapter = HistorialAdapter(activity?.applicationContext!!, listOrdered)
         container.apply {
-            layoutManager = GridLayoutManager(activity, 2, RecyclerView.VERTICAL, false)
+            layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+            //layoutManager = GridLayoutManager(activity, 2, RecyclerView.VERTICAL, false)
             adapter = historialAdapter
         }
     }

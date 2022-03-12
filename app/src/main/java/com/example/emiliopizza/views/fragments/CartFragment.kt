@@ -86,7 +86,7 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(p0: View?) {
         lifecycleScope.launch {
-            cartPresenterInput.payOrder()
+            if(listOrderTaken.isNotEmpty())  cartPresenterInput.payOrder(listOrderTaken)
         }
     }
 
@@ -100,7 +100,6 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
                 }
             })
             .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->
-                Toast.makeText(activity?.applicationContext, "Canceled", Toast.LENGTH_SHORT).show()
             })
             .create()
             .show()
