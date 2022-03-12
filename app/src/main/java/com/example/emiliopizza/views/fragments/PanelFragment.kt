@@ -14,6 +14,7 @@ import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
 
 class PanelFragment : Fragment(), View.OnClickListener {
+    private lateinit var tabLayout: TabLayout
     private lateinit var btnOrder: Button
     private lateinit var btnHistorial: Button
     private lateinit var btnProfile: Button
@@ -39,9 +40,35 @@ class PanelFragment : Fragment(), View.OnClickListener {
         tabProfile = view.findViewById(R.id.tabProfile)
         */
 
+        navigate(OrderFragment())
         /*btnOrder.setOnClickListener(this)
         btnHistorial.setOnClickListener(this)
         btnProfile.setOnClickListener(this)*/
+
+        tabLayout = view.findViewById(R.id.tabsContainer)
+        tabLayout.elevation = 4f
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+                when(tab?.position){
+                    0 -> {
+                        navigate(OrderFragment())
+                    }
+                    1 -> {
+                        navigate(HistorialFragment())
+                    }
+                }
+            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+        })
     }
 
     override fun onClick(view: View?) {
@@ -58,8 +85,14 @@ class PanelFragment : Fragment(), View.OnClickListener {
             }
         }*/
     }
+
+    private fun navigate( fragment: Fragment){
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.container, fragment)
+            ?.commit()
+    }
     private fun navigateGoBack( fragment: Fragment){
-        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.viewContainer, fragment)
+        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)
            ?.addToBackStack("back")
             ?.commit()
     }

@@ -40,7 +40,7 @@ class OrderTakenAdapter(val context: Context, val list: MutableList<Order>, val 
                 .load(order.urlImg).into(img)
 
             btnremove.setOnClickListener {
-                listener.clickItem(absoluteAdapterPosition, it)
+                listener.clickItem(absoluteAdapterPosition, it, null)
             }
         }
     }

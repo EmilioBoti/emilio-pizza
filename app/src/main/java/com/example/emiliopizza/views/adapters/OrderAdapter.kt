@@ -48,7 +48,8 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
 
             itemView.setOnClickListener { view ->
                 val itemDesc = view.findViewById<LinearLayout>(R.id.item_desc)
-                listenerClick.clickItem(absoluteAdapterPosition, itemDesc)
+                val arrowDown: ImageView? = view.findViewById<ImageView>(R.id.arrowDown)
+                listenerClick.clickItem(absoluteAdapterPosition, itemDesc, arrowDown!!)
             }
             addCart.setOnClickListener {
                 listenerClick.clickAddCart(absoluteAdapterPosition)

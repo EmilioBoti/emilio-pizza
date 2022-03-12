@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -90,7 +91,7 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
         }
     }
 
-    override fun clickItem(pos: Int, view: View) {
+    override fun clickItem(pos: Int, view: View, arrowDown: ImageView?) {
         AlertDialog.Builder(activity)
             .setTitle("Delete ${listOrderTaken[pos].name}")
             .setMessage("Are you sure want to delete it?")

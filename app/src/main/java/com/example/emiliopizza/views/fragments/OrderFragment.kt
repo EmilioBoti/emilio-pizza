@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -55,13 +56,15 @@ class OrderFragment : Fragment(), IOrder.PresenterView, OnclickItem {
         Snackbar.make(containerItemOrder, "${order.name} added", Snackbar.LENGTH_SHORT).show()
     }
 
-    override fun clickItem(pos: Int, view: View) {
+    override fun clickItem(pos: Int, view: View, arrowDown: ImageView?) {
         when(view.visibility){
             View.GONE -> {
                 view.visibility = View.VISIBLE
+                arrowDown?.rotation = 180f
             }
             View.VISIBLE -> {
                 view.visibility = View.GONE
+                arrowDown?.rotation = 0f
             }
         }
     }

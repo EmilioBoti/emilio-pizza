@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             tools:text="@string/countItems"
             android:layout_marginStart="@dimen/dimen_5"
-            android:textColor="@color/black"
             android:textStyle="bold"
             />
     </LinearLayout>
