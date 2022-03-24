@@ -73,6 +73,7 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
     override fun hasPay(paid: Boolean) {
         lifecycleScope.launch {
             if (paid){
+                orderTakenAdapter.notifyDataSetChanged()
                 Toast.makeText(activity?.applicationContext, "The pay has been successfully", Toast.LENGTH_SHORT).show()
             }
             else Toast.makeText(activity?.applicationContext, "Error", Toast.LENGTH_SHORT).show()
@@ -87,7 +88,11 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(p0: View?) {
         lifecycleScope.launch {
-            if(listOrderTaken.isNotEmpty())  cartPresenterInput.payOrder(listOrderTaken)
+            if(listOrderTaken.isNotEmpty()){
+                cartPresenterInput.payOrder(listOrderTaken)
+            }else{
+                Toast.makeText(activity, "You do not have item to pay.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

@@ -40,6 +40,7 @@ class HistorialFragment : Fragment(), IHistorial.PresenterView {
     }
 
     override fun getListItemOrdered(listOrdered: MutableList<Ordered>) {
+        listOrdered.reverse()
         historialAdapter = HistorialAdapter(activity?.applicationContext!!, listOrdered)
         container.apply {
             layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)

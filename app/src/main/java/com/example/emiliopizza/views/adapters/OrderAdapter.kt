@@ -52,7 +52,7 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
                 listenerClick.clickItem(absoluteAdapterPosition, itemDesc, arrowDown!!)
             }
             addCart.setOnClickListener {
-                listenerClick.clickAddCart(absoluteAdapterPosition)
+                if(RecyclerView.NO_POSITION != absoluteAdapterPosition) listenerClick.clickAddCart(absoluteAdapterPosition)
             }
 
         }

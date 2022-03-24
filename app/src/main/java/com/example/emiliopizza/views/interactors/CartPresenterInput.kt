@@ -8,6 +8,7 @@ import com.example.emiliopizza.views.models.Order
 import com.example.emiliopizza.views.models.Ordered
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.text.DecimalFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import kotlin.math.round
@@ -49,6 +50,7 @@ class CartPresenterInput(private val viewer: ICartOrder.PresenterView): ICartOrd
 
     private fun calculatePrice(){
         totalPrice = 0f
-        list.forEach { order -> totalPrice += round(order.price) }
+        val format = DecimalFormat("#.##")
+        list.forEach { order -> totalPrice += format.format(order.price).toFloat() }
     }
 }
