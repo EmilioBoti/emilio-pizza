@@ -73,6 +73,8 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
     override fun hasPay(paid: Boolean) {
         lifecycleScope.launch {
             if (paid){
+                price.text = "0.0€"
+                countItem.text = "0"
                 orderTakenAdapter.notifyDataSetChanged()
                 Toast.makeText(activity?.applicationContext, "The pay has been successfully", Toast.LENGTH_SHORT).show()
             }
@@ -82,7 +84,6 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
 
     override fun removedItem(ordered: Order, pos: Int) {
         orderTakenAdapter.notifyItemRemoved(pos)
-        //Toast.makeText(activity?.applicationContext, "removed ${ordered.name} ${listOrderTaken.size}", Toast.LENGTH_SHORT).show()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -91,12 +92,12 @@ class CartFragment : Fragment(),ICartOrder.PresenterView, View.OnClickListener, 
             if(listOrderTaken.isNotEmpty()){
                 cartPresenterInput.payOrder(listOrderTaken)
             }else{
-                Toast.makeText(activity, "You do not have item to pay.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "You do not have items to pay.", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    override fun clickItem(pos: Int, view: View, arrowDown: ImageView?) {
+    override fun clickItem(pos: Int, view: View, arrowDown: ImageView? ) {
         AlertDialog.Builder(activity)
             .setTitle("Delete ${listOrderTaken[pos].name}")
             .setMessage("Are you sure want to delete it?")

@@ -32,7 +32,11 @@
             android:textStyle="bold"
             />
     </LinearLayout>
-
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/barList"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/containerorderTaken"
         android:layout_width="match_parent"

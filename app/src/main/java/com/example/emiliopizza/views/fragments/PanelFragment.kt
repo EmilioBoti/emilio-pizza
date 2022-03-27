@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayout
 
 class PanelFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
+    private var page: Int? = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_panel, container, false)
@@ -24,7 +25,13 @@ class PanelFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = "Panel"
 
-        navigate(OrderFragment())
+        page = arguments?.getInt("page")
+
+        page?.let {
+            nav(page)
+        }
+
+        //navigate(OrderFragment())
 
         tabLayout = view.findViewById(R.id.tabsContainer)
         tabLayout.elevation = 4f
@@ -32,15 +39,8 @@ class PanelFragment : Fragment() {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-
-                when(tab?.position){
-                    0 -> {
-                        navigate(OrderFragment())
-                    }
-                    1 -> {
-                        navigate(HistorialFragment())
-                    }
-                }
+                page = tab?.position
+                nav(page)
             }
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
@@ -50,6 +50,20 @@ class PanelFragment : Fragment() {
 
             }
         })
+    }
+    private fun nav(page: Int?){
+        when(page){
+            0 -> {
+                //val t = tabLayout.getTabAt(page)
+                //tabLayout.selectTab(t)
+                navigate(OrderFragment())
+            }
+            1 -> {
+                //val t = tabLayout.getTabAt(page)
+                //tabLayout.selectTab(t)
+                navigate(HistorialFragment())
+            }
+        }
     }
 
     private fun navigate( fragment: Fragment){

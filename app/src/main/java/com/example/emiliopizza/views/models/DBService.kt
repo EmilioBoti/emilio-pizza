@@ -7,8 +7,6 @@ object DBService {
     private val listOrderTaken: MutableList<Order> = mutableListOf()
     private val listHistorilOrder: MutableList<Ordered> = mutableListOf()
 
-    init { }
-
      suspend fun addOrder(order: Order){
          withContext(Dispatchers.IO){
              listOrderTaken.add(order)

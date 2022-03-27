@@ -41,7 +41,8 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
         }
 
         fun binData(order: Order) {
-            Picasso.get().load(order.urlImg).into(image)
+            Picasso.get().load(order.urlImg)
+                .fit().centerCrop().into(image)
             name.text = order.name
             price.text = "${order.price} €"
             descText.text = order.desc
@@ -49,7 +50,9 @@ class OrderAdapter(val context: Context,val list: MutableList<Order>, val listen
             itemView.setOnClickListener { view ->
                 val itemDesc = view.findViewById<LinearLayout>(R.id.item_desc)
                 val arrowDown: ImageView? = view.findViewById<ImageView>(R.id.arrowDown)
-                listenerClick.clickItem(absoluteAdapterPosition, itemDesc, arrowDown!!)
+                if(RecyclerView.NO_POSITION != absoluteAdapterPosition){
+                    listenerClick.clickItem(absoluteAdapterPosition, itemDesc, arrowDown!!)
+                }
             }
             addCart.setOnClickListener {
                 if(RecyclerView.NO_POSITION != absoluteAdapterPosition) listenerClick.clickAddCart(absoluteAdapterPosition)

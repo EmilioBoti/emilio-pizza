@@ -15,15 +15,17 @@ import com.example.emiliopizza.views.fragments.PanelFragment
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
+    private var page: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navigate(PanelFragment())
-    }
-
-    override fun onStart() {
-        super.onStart()
+        navigate(PanelFragment().apply {
+            arguments = Bundle().apply {
+                putInt("page", page)
+            }
+        })
     }
 
     private fun navigateGoBack( fragment: Fragment){
@@ -32,6 +34,11 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
     private fun navigate( fragment: Fragment){
+        fragment.apply {
+            arguments = Bundle().apply {
+                putInt("page", page)
+            }
+        }
         supportFragmentManager.beginTransaction()
             .replace(R.id.viewContainer, fragment)
             .commit()
@@ -49,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.order -> {
+                page = 0
                 navigate(PanelFragment())
             }R.id.cartMenu->{
                 navigateGoBack(CartFragment())
@@ -56,7 +64,9 @@ class MainActivity : AppCompatActivity() {
             R.id.cart -> {
                 navigateGoBack(CartFragment())
             }R.id.historial -> {
-                navigateGoBack(HistorialFragment())
+                page = 1
+                navigate(PanelFragment())
+                //navigateGoBack(HistorialFragment())
             }
         }
         return super.onOptionsItemSelected(item)
